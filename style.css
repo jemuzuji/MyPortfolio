@@ -1,0 +1,338 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+}
+
+/* Navbar */
+header {
+    background: #2E2E2E;
+    /* เทาเข้ม */
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* About / Portfolio / Contact */
+.about,
+.portfolio,
+.contact {
+    padding: 100px 50px;
+    text-align: center;
+    background: #F5F5F5;
+    /* เทาอ่อน */
+}
+
+.about:nth-of-type(even),
+.portfolio:nth-of-type(even),
+.contact:nth-of-type(even) {
+    background: #fff;
+    /* สลับขาว/เทาอ่อน */
+}
+
+.about h2,
+.portfolio h2,
+.contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #2E2E2E;
+}
+
+/* Portfolio Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 15px;
+    color: #4CAF50;
+}
+
+/* Contact */
+.contact p {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2E2E2E;
+    /* เทาเข้ม */
+    color: #fff;
+}
+
+.logo {
+    color: #4CAF50;
+    /* เขียวหลัก */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #4caf50;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #4caf50;
+    transform: scale(1.05);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url("myphoto.jpg") no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+/* Overlay สีเขียวโปร่ง */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:url("photo/bg.png") no-repeat center center / cover;
+    z-index: 0;
+}
+
+/* เนื้อหาให้อยู่บน overlay */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Avatar รูปตัวเอง */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4caf50;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ข้อความ */
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+.hero-content h2 span {
+    color: #ffffff;
+}
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* ปุ่ม */
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 8px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/button-bg.jpg") no-repeat center center / cover;
+  z-index: -2;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* ทำให้ข้อความอ่านง่ายขึ้น */
+  z-index: -1;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+/* Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h2 { font-size: 2em; }
+    .hero-content p { font-size: 1em; }
+    .btn { padding: 10px 20px; font-size: 0.9em; }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+
+/* สำหรับ Tablet (จอ <= 1024px) */
+@media (max-width: 1024px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* สำหรับ Mobile (จอ <= 768px) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* สำหรับจอเล็กมาก (<= 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 1.2em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
+
+.social-img {
+    margin: 0;
+    text-align: center;
+    width: 99%;
+    margin-bottom: 50px;
+}
+
+.social-img ul.button-img {
+    display: inline;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+}
